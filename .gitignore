@@ -7,6 +7,10 @@ __pycache__/
 env/
 .env
 
+# Node.js
+node_modules/
+package-lock.json
+
 # Backups and app data
 *.bak
 Media/
