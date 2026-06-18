@@ -17,3 +17,11 @@ WhatsApp\ Images/
 WhatsApp\ Voice\ Notes/
 md5sum.txt
 settings.json
+
+# Briefcase/BeeWare builds and logs
+build/
+logs/
+
+# Downloaded backup files (folders made of digits, e.g. 5215549688473)
+[0-9]*/
+

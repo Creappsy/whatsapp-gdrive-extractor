@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Backup Extractor</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div style="font-weight: 600; font-size: 1.2rem; color: var(--primary);">WA Extractor</div>
+        <div class="nav-actions">
+            <label class="toggle-switch-container">
+                Modo Avanzado ⚙️
+                <div class="toggle-switch">
+                    <input type="checkbox" id="advanced-mode-toggle">
+                    <span class="slider"></span>
+                </div>
+            </label>
+            <button id="theme-btn" class="icon-btn">🌙</button>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 6rem;">
+        <div class="glass-card login-card">
+            <h1 class="gradient-text">WhatsApp Extractor</h1>
+            <p class="subtitle">Descarga tu copia de seguridad de Google Drive</p>
+            
+            <div id="error-box" class="alert error hidden"></div>
+
+            <!-- Método 1: Token Manual -->
+            <form id="login-form">
+                <div style="margin-bottom: 1.5rem; text-align: left; background: rgba(var(--primary-rgb), 0.05); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--primary);">Paso 1: Obtener el Token</h3>
+                    <p style="font-size: 0.9rem; color: var(--text); margin-bottom: 0.5rem;">
+                        1. Abre el siguiente enlace en tu navegador: <br>
+                        <a href="https://accounts.google.com/EmbeddedSetup" target="_blank" style="color: var(--primary); font-weight: bold; word-break: break-all;">https://accounts.google.com/EmbeddedSetup</a>
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text); margin-bottom: 0.5rem;">
+                        2. Inicia sesión con tu cuenta de Google.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--text);">
+                        3. Presiona F12 para abrir las Herramientas de Desarrollador, ve a la pestaña <b>Application</b> -> <b>Cookies</b>, y copia el valor de la cookie <b>oauth_token</b>.
+                    </p>
+                </div>
+
+                <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: var(--primary);">Paso 2: Iniciar Sesión</h3>
+                
+                <div class="input-group">
+                    <label for="gmail">Correo Electrónico de Google</label>
+                    <input type="email" id="gmail" placeholder="tucorreo@gmail.com">
+                </div>
+                
+                <div class="input-group">
+                    <label for="oauth_token">Token OAuth copiado</label>
+                    <input type="text" id="oauth_token" placeholder="oauth2_4/...">
+                </div>
+
+                <div class="input-group" style="margin-bottom: 1.5rem; text-align: center;">
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">¿Prefieres Contraseña de Aplicación? Usa el <a href="#" onclick="document.getElementById('advanced-mode-toggle').click(); return false;" style="color: var(--primary);">Modo Avanzado</a>.</span>
+                </div>
+
+                <!-- CONFIGURACIÓN AVANZADA (Oculta por defecto, se muestra en advanced-mode) -->
+                <div class="advanced-only" style="background: rgba(128, 128, 128, 0.05); padding: 1.2rem; border-radius: 12px; margin-bottom: 1.5rem; border: 1px dashed rgba(128, 128, 128, 0.3);">
+                    <h4 style="margin-top: 0; margin-bottom: 0.8rem; color: var(--primary);">⚙️ Configuración Avanzada</h4>
+                    
+                    <div class="input-group" style="margin-bottom: 1rem;">
+                        <label for="password">Contraseña de Aplicación (Alternativa)</label>
+                        <input type="password" id="password" placeholder="Ej: abcd efgh ijkl mnop">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="android_id">ID de Android (16 caracteres hexadecimales)</label>
+                        <input type="text" id="android_id" placeholder="Opcional (vacío = aleatorio)">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn primary" id="login-btn" style="width: 100%; margin-top: 1rem;">¡Recuperar Mis Chats!</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

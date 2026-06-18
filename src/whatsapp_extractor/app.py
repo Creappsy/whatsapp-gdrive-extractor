@@ -5,7 +5,10 @@ import queue
 import json
 import time
 
-from extractor import WaBackup, get_backup_info
+try:
+    from .extractor import WaBackup, get_backup_info
+except ImportError:
+    from extractor import WaBackup, get_backup_info
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24) if 'os' in globals() else 'super-secret-key'
@@ -141,7 +144,10 @@ def progress():
 
 @app.route('/api/decrypt', methods=['POST'])
 def decrypt_file():
-    from decryptor import WhatsAppDecryptor
+    try:
+        from .decryptor import WhatsAppDecryptor
+    except ImportError:
+        from decryptor import WhatsAppDecryptor
     import tempfile
     
     if 'file' not in request.files:

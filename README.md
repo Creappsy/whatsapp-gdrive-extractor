@@ -10,27 +10,29 @@ Una herramienta de código abierto y nativa de escritorio para extraer, descarga
 
 > **Nota Importante:** Este proyecto es un *Fork* modernizado de [daferferso/whatsapp-gdrive-extractor](https://github.com/daferferso/whatsapp-gdrive-extractor) (y del trabajo fundacional original de la comunidad como `B16f00t/whatsapp-gdrive-extractor`). Hemos tomado el robusto motor original de consola y lo hemos transformado en una Aplicación de Escritorio completa con Interfaz Gráfica (UI), descargas en tiempo real, auto-extracción de tokens y módulo de desencriptación local. Todo el crédito de la ingeniería inversa inicial a los servidores de Google pertenece a los autores originales.
 
-![Login UI](/C:/Users/Roy3r/.gemini/antigravity/brain/450feec7-37c5-4c51-bad0-6a45dd5c89ec/whatsapp_login_ui_1781735633410.png)
+![Login UI](assets/login_ui.png)
 *Vista de Login con Extracción Automática.*
 
 ## ✨ Características Principales
 
-- **Auto-Extracción Nativa:** Construida con `pywebview`. Abre una ventana oficial de Google, inicias sesión normalmente y la aplicación extrae la cookie `oauth_token` automáticamente para descargar tus backups sin fricción.
-- **Motor de Desencriptación Local:** ¿Descargaste un archivo `.crypt14` o `.crypt15`? Usa nuestro nuevo módulo integrado basado en AES-256 para convertirlo en una base de datos SQLite (.db) legible usando tu contraseña E2EE de 64 dígitos.
-- **Interfaz Web Moderna:** Diseño limpio, amigable y con Modo Oscuro integrado (Glassmorphism).
-- **Descargas en Tiempo Real:** Barra de progreso visual conectada al motor de descarga en vivo mediante SSE.
+- **Auto-Extracción Nativa:** Construida con `pywebview` para escritorio y `Toga` (WebView nativo) para Android. Abre una ventana oficial de Google, inicias sesión normalmente y la aplicación extrae la cookie `oauth_token` para descargar tus backups de forma manual e independiente.
+- **Motor de Desencriptación Local:** ¿Descargaste un archivo `.crypt14` o `.crypt15`? Usa nuestro módulo integrado basado en AES-256 para convertirlo en una base de datos SQLite (.db) legible usando tu contraseña E2EE de 64 dígitos.
+- **Directo al Celular (ADB USB):** Transfiere de manera directa las copias de seguridad descargadas al almacenamiento interno de tu dispositivo Android conectado por USB, en la ruta correspondiente de WhatsApp.
+- **Acceso Rápido:** Abre la carpeta local de la copia de seguridad descargada en el Explorador de Archivos con un solo clic.
+- **Interfaz Web Moderna y Responsiva:** Diseño premium de tipo Glassmorphism, con soporte para Modo Oscuro y adaptabilidad para pantallas de escritorio y teléfonos móviles.
+- **Descargas en Tiempo Real:** Barra de progreso visual conectada al motor de descarga mediante SSE.
 - **Seguro y Privado:** Tus credenciales nunca se guardan en el disco duro. Se mantienen en memoria y se borran al cerrar la app.
 
-![Dashboard UI](/C:/Users/Roy3r/.gemini/antigravity/brain/450feec7-37c5-4c51-bad0-6a45dd5c89ec/whatsapp_dashboard_ui_1781735643092.png)
-*Panel de control interactivo con descargas y módulo de desencriptación.*
+![Dashboard UI](assets/dashboard_ui.png)
+*Panel de control interactivo con descargas, módulo de desencriptación y transferencias.*
 
 ---
 
-## 🚀 Instalación y Uso (Windows)
+## 🚀 Instalación y Uso (Escritorio - Windows)
 
-Dado que la aplicación necesita abrir una ventana visual para leer la cookie de Google, se ejecuta de forma nativa en tu computadora.
+Dado que la aplicación necesita ejecutarse localmente, puedes correrla en tu computadora de escritorio:
 
-1. Haz doble clic derecho sobre el archivo `local_deploy.ps1` y selecciona **Ejecutar con PowerShell**.
+1. Haz clic derecho sobre el archivo `local_deploy.ps1` y selecciona **Ejecutar con PowerShell**.
 2. El script creará un entorno virtual de Python, instalará las dependencias y abrirá la aplicación en una ventana de escritorio.
 
 ## 📚 ¿De dónde obtengo mis datos? (Guía Paso a Paso)
@@ -70,6 +72,31 @@ Si prefieres usar la herramienta original de línea de comandos en lugar de la a
    docker build . -t whatsapp-gdrive-extractor
    docker run -v .:/app -it whatsapp-gdrive-extractor
    ```
+
+## 📱 Compilación para Android Nativo (APK)
+
+La aplicación es completamente compatible con dispositivos Android utilizando el framework de empaquetado **BeeWare / Briefcase**.
+
+### Requisitos previos:
+- Python 3.10 o superior.
+- Java JDK 17 (se descarga automáticamente si no se encuentra).
+- Android SDK (se configura automáticamente en el primer build).
+
+### Instrucciones para compilar:
+1. Activa tu entorno virtual e instala `briefcase`:
+   ```powershell
+   .\venv\Scripts\python.exe -m pip install briefcase
+   ```
+2. Inicializa el proyecto Android:
+   ```powershell
+   .\venv\Scripts\briefcase.exe create android --no-input
+   ```
+3. Compila el APK ejecutable:
+   ```powershell
+   .\venv\Scripts\briefcase.exe build android --no-input
+   ```
+4. El archivo APK resultante se ubicará en la siguiente ruta de compilación lista para instalarse en tu celular:
+   `build\whatsapp_extractor\android\gradle\app\build\outputs\apk\debug\app-debug.apk`
 
 ## 🤝 Contribuir
 ¡Las contribuciones son bienvenidas! Siéntete libre de abrir un *Issue* o enviar un *Pull Request* con mejoras.
