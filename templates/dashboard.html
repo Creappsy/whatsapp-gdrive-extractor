@@ -3,23 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - WhatsApp Extractor</title>
+    <title data-i18n="nav.title">Dashboard - WhatsApp Extractor</title>
     <link rel="stylesheet" href="/static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- i18next scripts -->
+    <script src="https://unpkg.com/i18next@23.10.1/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@2.5.0/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@7.2.0/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
     <nav class="navbar glass">
-        <h2 class="gradient-text">WhatsApp Extractor</h2>
+        <h2 class="gradient-text" data-i18n="nav.title">WhatsApp Extractor</h2>
         <div class="nav-actions">
+            <!-- Language Dropdown -->
+            <div class="lang-selector">
+                <select id="lang-switch" class="lang-dropdown">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                    <option value="bn">🇧🇩 বাংলা</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="ur">🇵🇰 اردو</option>
+                    <option value="id">🇮🇩 Bahasa Indonesia</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="mr">🇮🇳 मराठी</option>
+                    <option value="te">🇮🇳 తెలుగు</option>
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="ta">🇮🇳 தமிழ்</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="tl">🇵🇭 Tagalog</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pl">🇵🇱 Polski</option>
+                    <option value="nl">🇳🇱 Nederlands</option>
+                    <option value="th">🇹🇭 ไทย</option>
+                    <option value="fa">🇮🇷 فارسی</option>
+                    <option value="gu">🇮🇳 ગુજરાતી</option>
+                    <option value="ro">🇷🇴 Română</option>
+                    <option value="uk">🇺🇦 Українська</option>
+                    <option value="el">🇬🇷 Ελληνικά</option>
+                    <option value="hu">🇭🇺 Magyar</option>
+                    <option value="cs">🇨🇿 Čeština</option>
+                    <option value="sv">🇸🇪 Svenska</option>
+                    <option value="he">🇮🇱 עברית</option>
+                    <option value="da">🇩🇰 Dansk</option>
+                    <option value="fi">🇫🇮 Suomi</option>
+                    <option value="no">🇳🇴 Norsk</option>
+                    <option value="sk">🇸🇰 Slovenčina</option>
+                    <option value="bg">🇧🇬 Български</option>
+                    <option value="hr">🇭🇷 Hrvatski</option>
+                    <option value="sr">🇷🇸 Српски</option>
+                </select>
+            </div>
+
             <label class="toggle-switch-container">
-                Modo Avanzado ⚙️
+                <span data-i18n="nav.advancedMode">Modo Avanzado ⚙️</span>
                 <div class="toggle-switch">
                     <input type="checkbox" id="advanced-mode-toggle">
                     <span class="slider"></span>
                 </div>
             </label>
             <button id="theme-btn" class="icon-btn">🌙</button>
-            <button id="logout-btn" class="btn outline">Cerrar Sesión</button>
+            <button id="logout-btn" class="btn outline" data-i18n="nav.logout">Cerrar Sesión</button>
         </div>
     </nav>
 
@@ -27,26 +77,26 @@
         <header class="dashboard-header" style="text-align: center; margin-bottom: 2rem;">
             <!-- WIZARD STEP 3 -->
             <div class="wizard-step active" style="display: inline-block; text-align: left; max-width: 600px; margin: 0 auto;">
-                <h3>Paso 3: Recuperar Copias de Seguridad</h3>
-                <p>¡Conexión exitosa! Selecciona el archivo que deseas restaurar a tu computadora.</p>
+                <h3 data-i18n="dashboard.step3Title">Paso 3: Recuperar Copias de Seguridad</h3>
+                <p data-i18n="dashboard.step3Subtitle">¡Conexión exitosa! Selecciona el archivo que deseas restaurar a tu computadora.</p>
             </div>
         </header>
 
         <!-- ADVANCED MODE: DECRYPTION -->
         <div class="advanced-only">
             <section class="decrypt-section glass-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px dashed rgba(255,0,0,0.3);">
-                <h4 style="color: #ef4444; margin-bottom: 1rem;">⚙️ Módulo de Criptografía (Local)</h4>
-                <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;">Sube un archivo .crypt14/.crypt15 y tu hash E2EE (64 hex) para desencriptarlo.</p>
+                <h4 style="color: #ef4444; margin-bottom: 1rem;" data-i18n="dashboard.cryptoTitle">⚙️ Módulo de Criptografía (Local)</h4>
+                <p style="font-size: 0.9rem; color: #888; margin-bottom: 1rem;" data-i18n="dashboard.cryptoSubtitle">Sube un archivo .crypt14/.crypt15 y tu hash E2EE (64 hex) para desencriptarlo.</p>
                 <form id="decrypt-form" style="display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap;">
                     <div class="input-group" style="flex: 1; min-width: 250px;">
-                        <label>Archivo Cifrado</label>
+                        <label data-i18n="dashboard.cryptoFileLabel">Archivo Cifrado</label>
                         <input type="file" id="crypt-file" accept=".crypt14, .crypt15" required style="padding: 10px;">
                     </div>
                     <div class="input-group" style="flex: 2; min-width: 300px;">
-                        <label>Llave E2EE</label>
-                        <input type="text" id="crypt-key" placeholder="Ej: a1b2c3d4..." minlength="64" maxlength="64" required>
+                        <label data-i18n="dashboard.cryptoKeyLabel">Llave E2EE</label>
+                        <input type="text" id="crypt-key" placeholder="Ej: a1b2c3d4..." data-i18n="[placeholder]dashboard.cryptoKeyPlaceholder" minlength="64" maxlength="64" required>
                     </div>
-                    <button type="submit" class="btn primary" id="decrypt-btn">Forzar Desencriptación</button>
+                    <button type="submit" class="btn primary" id="decrypt-btn" data-i18n="dashboard.decryptBtn">Forzar Desencriptación</button>
                 </form>
                 <div id="decrypt-error" class="hidden" style="color: #ff4b4b; margin-top: 1rem; font-size: 0.9rem;"></div>
             </section>
@@ -58,15 +108,15 @@
 
         <div id="progress-modal" class="modal hidden">
             <div class="modal-content glass-card">
-                <h2>Descargando Archivos...</h2>
+                <h2 data-i18n="dashboard.modalTitle">Descargando Archivos...</h2>
                 <div class="progress-bar-container">
                     <div id="progress-fill" class="progress-fill"></div>
                 </div>
                 <div class="progress-stats">
                     <span id="files-count">0 / 0 archivos</span>
-                    <span id="size-downloaded">Conectando...</span>
+                    <span id="size-downloaded" data-i18n="dashboard.modalConnecting">Conectando...</span>
                 </div>
-                <p id="progress-status" class="status-text">Iniciando descarga, por favor espera...</p>
+                <p id="progress-status" class="status-text" data-i18n="dashboard.modalInit">Iniciando descarga, por favor espera...</p>
             </div>
         </div>
     </div>

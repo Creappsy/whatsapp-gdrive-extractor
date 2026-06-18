@@ -1,7 +1,67 @@
+// Initialize i18next
+let i18nInitialized = false;
+
+i18next
+    .use(i18nextHttpBackend)
+    .use(i18nextBrowserLanguageDetector)
+    .init({
+        fallbackLng: 'en',
+        debug: false,
+        backend: {
+            loadPath: '/static/locales/{{lng}}/translation.json'
+        }
+    }).then(function(t) {
+        i18nInitialized = true;
+        updateContent();
+        
+        // Language switcher setup
+        const langSwitch = document.getElementById('lang-switch');
+        if (langSwitch) {
+            // Find matched language prefix (e.g. es-US -> es)
+            const currentLang = i18next.language.split('-')[0];
+            const optionExists = Array.from(langSwitch.options).some(opt => opt.value === currentLang);
+            if (optionExists) {
+                langSwitch.value = currentLang;
+            } else {
+                langSwitch.value = 'en';
+            }
+            
+            langSwitch.addEventListener('change', (e) => {
+                i18next.changeLanguage(e.target.value).then(() => {
+                    updateContent();
+                    if (typeof window.loadBackups === 'function' && document.getElementById('backups-container')) {
+                        // Refresh backups to update texts
+                        window.loadBackups();
+                    }
+                });
+            });
+        }
+    });
+
+function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (key.startsWith('[placeholder]')) {
+            element.placeholder = i18next.t(key.replace('[placeholder]', ''));
+        } else if (key.startsWith('[html]')) {
+            element.innerHTML = i18next.t(key.replace('[html]', ''));
+        } else {
+            element.innerText = i18next.t(key);
+        }
+    });
+}
+
+// Helper for translation or fallback
+function t(key, fallback) {
+    if (!i18nInitialized) return fallback;
+    return i18next.t(key);
+}
+
+// --- Rest of the application logic --- //
+
 // Advanced Mode Toggle
 const modeToggle = document.getElementById('advanced-mode-toggle');
 if (modeToggle) {
-    // Load saved preference
     if (localStorage.getItem('advancedMode') === 'true') {
         document.body.classList.add('advanced-mode');
         modeToggle.checked = true;
@@ -23,7 +83,10 @@ const themeBtn = document.getElementById('theme-btn');
 const root = document.documentElement;
 let isDark = localStorage.getItem('theme') === 'dark';
 
-if(isDark) root.setAttribute('data-theme', 'dark');
+if(isDark) {
+    root.setAttribute('data-theme', 'dark');
+    if(themeBtn) themeBtn.textContent = '☀️';
+}
 
 if(themeBtn){
     themeBtn.addEventListener('click', () => {
@@ -31,9 +94,11 @@ if(themeBtn){
         if(isDark) {
             root.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
+            themeBtn.textContent = '☀️';
         } else {
             root.removeAttribute('data-theme');
             localStorage.setItem('theme', 'light');
+            themeBtn.textContent = '🌙';
         }
     });
 }
@@ -54,20 +119,20 @@ if(loginForm) {
         const oauth_token = document.getElementById('oauth_token') ? document.getElementById('oauth_token').value.trim() : '';
         
         if (!gmail) {
-            errBox.textContent = 'Por favor introduce tu correo.';
+            errBox.textContent = t('js.errEmail', 'Por favor introduce tu correo.');
             errBox.classList.remove('hidden');
             errBox.className = 'alert error';
             return;
         }
 
         if (!oauth_token && !password) {
-            errBox.textContent = 'Por favor introduce el Token OAuth o una Contraseña de Aplicación.';
+            errBox.textContent = t('js.errTokenPass', 'Por favor introduce el Token OAuth o una Contraseña de Aplicación.');
             errBox.classList.remove('hidden');
             errBox.className = 'alert error';
             return;
         }
 
-        loginBtn.textContent = "Conectando...";
+        loginBtn.textContent = t('login.connectingBtn', "Conectando...");
         loginBtn.disabled = true;
         errBox.classList.add('hidden');
 
@@ -94,17 +159,17 @@ if(loginForm) {
             if(data.success) {
                 window.location.href = '/';
             } else {
-                errBox.textContent = data.error || 'Error al iniciar sesión';
+                errBox.textContent = data.error || t('js.errLogin', 'Error al iniciar sesión');
                 errBox.classList.remove('hidden');
                 errBox.className = 'alert error';
-                loginBtn.textContent = "¡Recuperar Mis Chats!";
+                loginBtn.textContent = t('login.recoverBtn', "¡Recuperar Mis Chats!");
                 loginBtn.disabled = false;
             }
         } catch (err) {
-            errBox.textContent = 'Error de red al conectar con el servidor';
+            errBox.textContent = t('js.errNetLogin', 'Error de red al conectar con el servidor');
             errBox.classList.remove('hidden');
             errBox.className = 'alert error';
-            loginBtn.textContent = "¡Recuperar Mis Chats!";
+            loginBtn.textContent = t('login.recoverBtn', "¡Recuperar Mis Chats!");
             loginBtn.disabled = false;
         }
     });
@@ -113,26 +178,30 @@ if(loginForm) {
 // Dashboard logic
 const backupsContainer = document.getElementById('backups-container');
 if(backupsContainer) {
-    loadBackups();
-}
-
-async function loadBackups() {
-    try {
-        const res = await fetch('/api/backups');
-        if(res.status === 401) {
-            window.location.href = '/';
-            return;
+    window.loadBackups = async function() {
+        try {
+            const res = await fetch('/api/backups');
+            if(res.status === 401) {
+                window.location.href = '/';
+                return;
+            }
+            const data = await res.json();
+            renderBackups(data.backups);
+        } catch (e) {
+            backupsContainer.innerHTML = `<div class="alert error">${t('js.errLoadBackups', 'Error al cargar backups')}</div>`;
         }
-        const data = await res.json();
-        renderBackups(data.backups);
-    } catch (e) {
-        backupsContainer.innerHTML = `<div class="alert error">Error al cargar backups</div>`;
+    }
+    // Try to load backups if i18n is ready, otherwise wait.
+    if(i18nInitialized){
+        window.loadBackups();
+    } else {
+        i18next.on('initialized', () => window.loadBackups());
     }
 }
 
 function renderBackups(backups) {
     if(!backups || backups.length === 0) {
-        backupsContainer.innerHTML = `<p>No se encontraron copias de seguridad.</p>`;
+        backupsContainer.innerHTML = `<p>${t('js.noBackups', 'No se encontraron copias de seguridad.')}</p>`;
         return;
     }
     backupsContainer.innerHTML = '';
@@ -141,15 +210,15 @@ function renderBackups(backups) {
         const div = document.createElement('div');
         div.className = 'glass-card backup-card';
         div.innerHTML = `
-            <h3>Copia: ${b.id}</h3>
-            <div class="stat-row"><span>Tamaño</span><span>${b.backupSizeHuman}</span></div>
-            <div class="stat-row"><span>Mensajes</span><span>${b.messages}</span></div>
-            <div class="stat-row"><span>Archivos Media</span><span>${b.mediaFiles}</span></div>
-            <div class="stat-row"><span>Fecha</span><span>${new Date(b.uploadTime).toLocaleString()}</span></div>
+            <h3>${t('js.backupPrefix', 'Copia:')} ${b.id}</h3>
+            <div class="stat-row"><span>${t('js.size', 'Tamaño')}</span><span>${b.backupSizeHuman}</span></div>
+            <div class="stat-row"><span>${t('js.messages', 'Mensajes')}</span><span>${b.messages}</span></div>
+            <div class="stat-row"><span>${t('js.media', 'Archivos Media')}</span><span>${b.mediaFiles}</span></div>
+            <div class="stat-row"><span>${t('js.date', 'Fecha')}</span><span>${new Date(b.uploadTime).toLocaleString()}</span></div>
             <div class="backup-actions">
-                <button class="btn primary" onclick="startSync('${b.id}')">⬇ Descargar</button>
-                ${isAndroid ? '' : `<button class="btn success" onclick="pushToPhone('${b.id}')">📲 Transferir al Celular</button>`}
-                <button class="btn warning" onclick="openFolder('${b.id}')">📂 Abrir Carpeta</button>
+                <button class="btn primary" onclick="startSync('${b.id}')">${t('js.btnDownload', '⬇ Descargar')}</button>
+                ${isAndroid ? '' : `<button class="btn success" onclick="pushToPhone('${b.id}')">${t('js.btnTransfer', '📲 Transferir al Celular')}</button>`}
+                <button class="btn warning" onclick="openFolder('${b.id}')">${t('js.btnOpenFolder', '📂 Abrir Carpeta')}</button>
             </div>
         `;
         backupsContainer.appendChild(div);
@@ -168,15 +237,15 @@ window.openFolder = async function(backupId) {
             alert(data.error);
         }
     } catch (e) {
-        alert("Error al intentar abrir la carpeta.");
+        alert(t('js.errOpenFolder', "Error al intentar abrir la carpeta."));
     }
 }
 
 window.pushToPhone = async function(backupId) {
-    if (!confirm("Asegúrate de que tu celular está conectado por USB y tiene la Depuración USB activada.\n\nEsta acción copiará la base de datos descargada al almacenamiento de tu celular.\n\n¿Deseas continuar?")) return;
+    if (!confirm(t('js.confirmTransfer', "Asegúrate de que tu celular está conectado por USB y tiene la Depuración USB activada.\n\nEsta acción copiará la base de datos descargada al almacenamiento de tu celular.\n\n¿Deseas continuar?"))) return;
     
     document.getElementById('progress-modal').classList.remove('hidden');
-    document.getElementById('progress-status').textContent = "Conectando al dispositivo y transfiriendo archivos por favor espera...";
+    document.getElementById('progress-status').textContent = t('js.statusTransferring', "Conectando al dispositivo y transfiriendo archivos por favor espera...");
     document.getElementById('progress-status').style.color = "var(--text)";
     document.getElementById('progress-fill').style.width = "50%";
     
@@ -189,24 +258,24 @@ window.pushToPhone = async function(backupId) {
         const data = await res.json();
         
         if (data.success) {
-            document.getElementById('progress-status').textContent = "¡Transferencia Exitosa al celular!";
+            document.getElementById('progress-status').textContent = t('js.statusTransferSuccess', "¡Transferencia Exitosa al celular!");
             document.getElementById('progress-status').style.color = "var(--primary)";
             document.getElementById('progress-fill').style.width = "100%";
             setTimeout(() => {
                 document.getElementById('progress-modal').classList.add('hidden');
-                alert("¡Transferencia completada!\n\nRevisa la carpeta de WhatsApp en tu celular e instala WhatsApp para restaurar.");
+                alert(t('js.alertTransferDone', "¡Transferencia completada!\n\nRevisa la carpeta de WhatsApp en tu celular e instala WhatsApp para restaurar."));
             }, 2000);
         } else {
-            document.getElementById('progress-status').textContent = "Error: " + data.error;
+            document.getElementById('progress-status').textContent = t('js.errTransfer', "Error: ") + data.error;
             document.getElementById('progress-status').style.color = "var(--error)";
             setTimeout(() => {
                 document.getElementById('progress-modal').classList.add('hidden');
-                alert("Hubo un error: " + data.error);
+                alert(t('js.errTransfer', "Hubo un error: ") + data.error);
             }, 4000);
         }
     } catch (e) {
         document.getElementById('progress-modal').classList.add('hidden');
-        alert("Error al intentar comunicarse con el servidor local para la transferencia.");
+        alert(t('js.errAdb', "Error al intentar comunicarse con el servidor local para la transferencia."));
     }
 }
 
@@ -223,13 +292,13 @@ window.startSync = async function(backupId) {
             listenToProgress();
         }
     } catch (e) {
-        alert("Error al iniciar descarga");
+        alert(t('js.errSync', "Error al iniciar descarga"));
     }
 }
 
 function showProgressModal() {
     document.getElementById('progress-modal').classList.remove('hidden');
-    document.getElementById('progress-status').textContent = "Conectando al servidor...";
+    document.getElementById('progress-status').textContent = t('js.statusConnectingSync', "Conectando al servidor...");
     document.getElementById('progress-fill').style.width = "0%";
 }
 
@@ -244,19 +313,19 @@ function listenToProgress() {
         if(data.keep_alive) return;
         
         if(data.done) {
-            statusText.textContent = "¡Descarga Completada!";
+            statusText.textContent = t('dashboard.modalDoneTitle', "¡Descarga Completada!");
             statusText.style.color = "var(--primary)";
             fill.style.width = "100%";
             evtSource.close();
             setTimeout(() => {
                 document.getElementById('progress-modal').classList.add('hidden');
-                alert("¡Copia de seguridad descargada con éxito!");
+                alert(t('js.alertSyncDone', "¡Copia de seguridad descargada con éxito!"));
             }, 1500);
             return;
         }
 
         if(data.error) {
-            statusText.textContent = "Error: " + data.error;
+            statusText.textContent = t('js.errTransfer', "Error: ") + data.error;
             statusText.style.color = "var(--error)";
             evtSource.close();
             return;
@@ -266,7 +335,7 @@ function listenToProgress() {
             const pct = (data.num_files / data.total_files) * 100;
             fill.style.width = pct + "%";
             filesCount.textContent = `${data.num_files} / ${data.total_files} archivos`;
-            statusText.textContent = "Descargando contenido...";
+            statusText.textContent = t('dashboard.modalDownloading', "Descargando contenido...");
         }
     };
     
@@ -295,7 +364,7 @@ if (decryptForm) {
 
         if (!fileInput.files.length) return;
 
-        btn.textContent = "Procesando...";
+        btn.textContent = t('dashboard.decryptingBtn', "Procesando...");
         btn.disabled = true;
         errBox.classList.add('hidden');
         errBox.textContent = "";
@@ -320,21 +389,18 @@ if (decryptForm) {
                 document.body.appendChild(a);
                 a.click();
                 a.remove();
-                alert("¡Desencriptación exitosa! Tu base de datos SQLite ha sido descargada.");
+                alert(t('js.decryptSuccess', "¡Desencriptación exitosa! Tu base de datos SQLite ha sido descargada."));
             } else {
                 const errorData = await response.json();
-                errBox.textContent = "Error: " + (errorData.error || "Fallo en la desencriptación");
+                errBox.textContent = "Error: " + (errorData.error || t('js.decryptFail', "Fallo en la desencriptación"));
                 errBox.classList.remove('hidden');
             }
         } catch (error) {
-            errBox.textContent = "Error de red al intentar desencriptar.";
+            errBox.textContent = t('js.errNetDecrypt', "Error de red al intentar desencriptar.");
             errBox.classList.remove('hidden');
         } finally {
-            btn.textContent = "Desencriptar .db";
+            btn.textContent = t('js.btnDecryptReset', "Desencriptar .db");
             btn.disabled = false;
         }
     });
 }
-
-
-

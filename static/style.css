@@ -232,4 +232,42 @@ body.advanced-mode .advanced-only {
     }
 }
 
+/* Language Selector Dropdown */
+.lang-selector {
+    position: relative;
+    display: inline-block;
+}
 
+.lang-dropdown {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2364748b" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+}
+
+[data-theme="dark"] .lang-dropdown {
+    background-color: rgba(30, 41, 59, 0.5);
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2394a3b8" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+}
+
+.lang-dropdown:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
+
+.lang-dropdown:focus {
+    outline: none;
+    border-color: var(--primary);
+}

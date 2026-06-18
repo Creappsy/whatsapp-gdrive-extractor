@@ -1,53 +1,75 @@
-# WhatsApp Google Drive Extractor
-Allows WhatsApp users on Android to extract their backed-up WhatsApp data from Google Drive.
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="100"/>
+  <h1>WhatsApp Google Drive Extractor 🚀</h1>
+  <p><b>Modern, fast, and multi-language tool to extract, decrypt, and restore your WhatsApp backups from Google Drive.</b></p>
 
-## Prerequisites
-* Docker
-* Android device with WhatsApp installed and the Google Drive backup feature enabled.
-* The device's Android ID (if you want to reduce the risk of being logged out of Google). Run `adb shell settings get secure android_id` or search Google Play for "device ID" apps.
-* Google account login credentials (username and password). If using 2-factor authentication, create and use an App password: https://myaccount.google.com/apppasswords
+  [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+  [![Docker](https://img.shields.io/badge/Docker-Supported-2496ED.svg)](https://www.docker.com/)
+  [![i18n](https://img.shields.io/badge/Languages-40_Supported-success.svg)](#)
+  [![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
+</div>
 
-## Instructions
-Clone the repository:
+---
 
-```bash
-git clone https://github.com/daferferso/whatsapp-gdrive-extractor.git
-```
+## 🌟 Features
 
-Add your Gmail, password, and Android ID to the `settings.json` file before running the container.
+* **Beautiful Web UI/UX:** A modern, dark-mode native interface with glassmorphism elements to easily guide you through the extraction process.
+* **🌍 40 Languages Supported:** 100% human-quality translations natively built-in. Change the language on-the-fly without reloading!
+* **Local Decryption (.crypt14 / .crypt15):** A fully local cryptography module to safely decrypt your SQLite databases using your E2EE hash key without uploading your data anywhere.
+* **Direct Android Transfer (ADB):** Push your downloaded and decrypted database directly into your Android phone's storage with a single click from the dashboard.
+* **Safe Authentication:** Supports both Google OAuth tokens and App Passwords for maximum security.
 
-Build the Docker image:
+## 📋 Prerequisites
 
-```bash
-cd whatsapp-gdrive-extractor/
-docker build . -t whatsapp-gdrive-extractor
-```
+Before you start, make sure you have:
+1. **Python 3.x** or **Docker** installed.
+2. An Android device with WhatsApp installed and Google Drive backups enabled.
+3. Your Google account credentials (or an [App Password](https://myaccount.google.com/apppasswords)).
+4. *Optional:* The Android ID of your device (to reduce the risk of Google logging you out).
 
-Run the Docker container:
+## 🚀 Installation & Usage
 
-**Linux:**
-```bash
-cd whatsapp-gdrive-extractor/
-docker run -v $(pwd):/app -it whatsapp-gdrive-extractor
-```
+### Option 1: Using Python (Recommended for UI)
 
-**Windows:**
-```powershell
-cd .\whatsapp-gdrive-extractor\
-docker run -v .:/app -it whatsapp-gdrive-extractor
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/daferferso/whatsapp-gdrive-extractor.git
+   cd whatsapp-gdrive-extractor
+   ```
 
-If downloading is interrupted, the files that were received successfully won't be re-downloaded when running the tool one more time. After downloading, you may verify the integrity of the downloaded files using `md5sum --check md5sum.txt` on Linux or `md5summer` on Windows.
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Alternative authentication method
-Instead of email and password, you can use an OAuth token to auth with Google. To obtain the value of the token, follow the instructions here. The token value should be in the format `oauth2_4/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`. Put this into the `settings.json` file, and re-build and re-run the docker container. Note that this token expires quickly, and can be used only once. If this happend, you can just obtain a fresh token, replace the value in `settings.json` and re-build the docker container.
+3. Run the Web Server:
+   ```bash
+   python server.py
+   ```
+4. Open your browser and go to `http://localhost:5000` to access the modern dashboard!
 
-## Troubleshooting
-* If you have `Error:Need Browser`, go to this url to solve the issue: https://accounts.google.com/b/0/DisplayUnlockCaptcha (Link no longer works 2025-12-11)
-* If you experience issues authenticating (`BadAuthentication` errors) with Google using you email and password, you can try using the oauth token cookie instead of the password. See Alternative authentication method.
+### Option 2: Using Docker
 
-## Agradecimientos / Credits
-* **Author:** TripCode
-* **Contributors:** DrDeath1122 from XDA for the multi-threading backbone part, YuriCosta for reverse engineering the new restore system, and macagua for the solution to the SSL problem. 
-* **Special thanks:** to YuriCosta, as I forked and improved his repository, adapting it to work with Docker along with macagua's solution.
-* **Modernización y UI:** Gracias a las recientes contribuciones para añadir una interfaz gráfica (UI), desencriptación local y la compilación para Android, expandiendo las capacidades originales del proyecto.
+1. Clone the repository and navigate into it.
+2. Build the Docker image:
+   ```bash
+   docker build . -t whatsapp-gdrive-extractor
+   ```
+3. Run the Docker container:
+   * **Linux:** `docker run -v $(pwd):/app -p 5000:5000 -it whatsapp-gdrive-extractor`
+   * **Windows (PowerShell):** `docker run -v .:/app -p 5000:5000 -it whatsapp-gdrive-extractor`
+
+## 🔑 Authentication Guide
+
+If you experience issues using your standard Google Email and Password, use the **OAuth Token** method (Step 1 on the Web UI):
+1. Go to `https://getandroidapp.com/` or any Google login portal.
+2. Log in with your Google account.
+3. Press `F12` to open Developer Tools.
+4. Go to **Application** -> **Cookies**.
+5. Find the `oauth_token` (It usually looks like `oauth2_4/XXXXXXXXXXXXXXXXX`).
+6. Copy and paste it into the Web UI.
+
+## 🤝 Credits & Acknowledgements
+* **Original Author:** TripCode
+* **Core Contributors:** DrDeath1122 (Multi-threading backbone), YuriCosta (New restore system reverse engineering), macagua (SSL fixes).
+* **Modernization & UI:** Rebuilt with a modern web interface, local cryptography module, ADB phone transfer, and fully localized into 40 languages for global accessibility.
