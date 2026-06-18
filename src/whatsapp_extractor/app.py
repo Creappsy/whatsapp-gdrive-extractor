@@ -256,6 +256,19 @@ def open_folder():
         return jsonify({"success": False, "error": str(e)}), 500
 
 if __name__ == '__main__':
-    import webview
-    window = webview.create_window('WhatsApp Google Drive Extractor', app, width=1000, height=700)
-    webview.start()
+    import os
+    # Detect if we should run in headless mode (e.g. inside Docker/Podman, or explicitly requested)
+    run_headless = os.environ.get('HEADLESS', '0') == '1' or os.path.exists('/.dockerenv') or os.environ.get('CONTAINER', '') != ''
+    
+    if not run_headless:
+        try:
+            import webview
+            window = webview.create_window('WhatsApp Google Drive Extractor', app, width=1000, height=700)
+            webview.start()
+        except Exception as e:
+            print(f"No se pudo iniciar pywebview ({e}). Usando modo servidor web tradicional...")
+            run_headless = True
+
+    if run_headless:
+        # Run Flask server directly
+        app.run(host="0.0.0.0", port=5000, debug=False)

@@ -29,3 +29,7 @@ logs/
 # Ignore backup folders
 [0-9]*
 
+# Briefcase files
+.briefcase/
+*.dist-info/
+

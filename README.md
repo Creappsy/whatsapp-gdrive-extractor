@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="100"/>
   <h1>WhatsApp Google Drive Extractor 🚀</h1>
-  <p><b>Modern, fast, and multi-language tool to extract, decrypt, and restore your WhatsApp backups from Google Drive.</b></p>
+  <p><b>Native cross-platform application (Windows, macOS, Linux, and Android), fast and multi-language, to extract, decrypt, and restore your WhatsApp backups from Google Drive.</b></p>
 
   <details open>
     <summary><b>🌍 Choose your language / Elige tu idioma</b></summary>
@@ -12,7 +12,7 @@
 
 
   [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
-  [![Docker](https://img.shields.io/badge/Docker-Supported-2496ED.svg)](https://www.docker.com/)
+  [![Podman](https://img.shields.io/badge/Podman-Supported-892CA0.svg)](https://podman.io/)
   [![i18n](https://img.shields.io/badge/Languages-40_Supported-success.svg)](#)
   [![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
 </div>
@@ -25,19 +25,30 @@
 * **🌍 40 Languages Supported:** 100% human-quality translations natively built-in. Change the language on-the-fly without reloading!
 * **Local Decryption (.crypt14 / .crypt15):** A fully local cryptography module to safely decrypt your SQLite databases using your E2EE hash key without uploading your data anywhere.
 * **Direct Android Transfer (ADB):** Push your downloaded and decrypted database directly into your Android phone's storage with a single click from the dashboard.
+* **Headless Server Mode Fallback:** Automatically detects running in headless container environments (like Podman) and falls back to a standard Flask server on port `5000` instead of failing due to missing graphical environments (by skipping `pywebview`).
 * **Safe Authentication:** Supports both Google OAuth tokens and App Passwords for maximum security.
 
-## 📋 Prerequisites
+## 📋 Prerequisites & Compatibility
 
 Before you start, make sure you have:
-1. **Python 3.x** or **Docker** installed.
+1. **Python 3.10 or higher** or **Podman** installed (chosen over Docker for corporate licensing compliance).
 2. An Android device with WhatsApp installed and Google Drive backups enabled.
 3. Your Google account credentials (or an [App Password](https://myaccount.google.com/apppasswords)).
 4. *Optional:* The Android ID of your device (to reduce the risk of Google logging you out).
 
+### Core Dependency Versions:
+* **Flask >= 3.0.0**
+* **pywebview >= 4.0.0** (native local desktop window provider)
+* **BeeWare/Toga >= 0.4.0** (cross-platform native app framework)
+* **gpsoauth == 2.0.0** (secure Google authentication library)
+* **pycryptodomex >= 3.0** (local database decryption)
+* **adbutils >= 2.0.0** (direct connection to Android devices via ADB)
+
 ## 🚀 Installation & Usage
 
-### Option 1: Using Python (Recommended for UI)
+### Option 1: Quick Desktop Execution (Python + pywebview)
+
+This option runs the application directly in a native desktop window using your operating system's built-in web rendering engine.
 
 1. Clone the repository:
    ```bash
@@ -45,27 +56,78 @@ Before you start, make sure you have:
    cd whatsapp-gdrive-extractor
    ```
 
-2. Install the required dependencies:
+2. Create and activate a virtual environment (recommended):
+   * **Windows (PowerShell):**
+     ```powershell
+     python -m venv venv
+     .\venv\Scripts\Activate.ps1
+     ```
+   * **macOS / Linux (Bash):**
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+
+3. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the Web Server:
+4. Run the application:
    ```bash
-   python server.py
+   python app.py
    ```
-4. Open your browser and go to `http://localhost:5000` to access the modern dashboard!
+   *(This will launch an independent, native desktop window).*
 
-### Option 2: Using Docker
+---
 
-1. Clone the repository and navigate into it.
-2. Build the Docker image:
+### Option 2: Native Compilation (Windows, macOS, Linux, and Android) with BeeWare/Briefcase
+
+This tool is configured to compile natively on desktop systems and Android mobile devices using **Briefcase**.
+
+1. Install `briefcase` in your environment:
    ```bash
-   docker build . -t whatsapp-gdrive-extractor
+   pip install briefcase
    ```
-3. Run the Docker container:
-   * **Linux:** `docker run -v $(pwd):/app -p 5000:5000 -it whatsapp-gdrive-extractor`
-   * **Windows (PowerShell):** `docker run -v .:/app -p 5000:5000 -it whatsapp-gdrive-extractor`
+
+2. **Development Mode (Desktop):**
+   To test the application in development mode on your PC:
+   ```bash
+   briefcase dev
+   ```
+
+3. **Compile and Run on Android 📱:**
+   * Create the Android project scaffolding:
+     ```bash
+     briefcase create android
+     ```
+   * Build the application package (`.apk`/`.aab`):
+     ```bash
+     briefcase build android
+     ```
+   * Run the app on a connected Android device (with USB Debugging enabled) or an emulator:
+     ```bash
+     briefcase run android
+     ```
+
+4. **Compile for other Operating Systems:**
+   * **Windows:** `briefcase run windows`
+   * **macOS:** `briefcase run macOS`
+   * **Linux:** `briefcase run linux`
+
+---
+
+### Option 3: Containerized Execution (Podman)
+
+If you prefer to run the application within an isolated container:
+
+1. Build the container image:
+   ```bash
+   podman build . -t whatsapp-gdrive-extractor -f Containerfile
+   ```
+2. Run the Podman container (mounting the current directory to save downloads to your PC and using the `:Z` flag for SELinux security settings if applicable):
+   * **Linux:** `podman run -v $(pwd):/app:Z -p 5000:5000 -it whatsapp-gdrive-extractor`
+   * **Windows (PowerShell):** `podman run -v .:/app:Z -p 5000:5000 -it whatsapp-gdrive-extractor`
 
 ## 🔑 Authentication Guide
 
@@ -77,7 +139,36 @@ If you experience issues using your standard Google Email and Password, use the 
 5. Find the `oauth_token` (It usually looks like `oauth2_4/XXXXXXXXXXXXXXXXX`).
 6. Copy and paste it into the Web UI.
 
+## 📱 Manual Restoration Guide on Android (The "Airplane Mode Trick")
+
+If you have already extracted your backup files using this tool, follow these steps to successfully restore them to your modern Android device (e.g., Samsung Galaxy, Xiaomi, Pixel, etc.):
+
+### Step 1: Transfer Files to Your Phone
+* **Automatic Method (Recommended):** Connect your phone to your PC via USB, enable **USB Debugging** in your phone's *Developer Options*, and click the **"Transfer to phone"** button on our interface to copy the files to the correct path automatically.
+* **Manual Method:** Connect your phone via USB cable and manually copy the extracted folders to the internal storage following this strict directory layout:
+  ```text
+  Internal storage
+  ┗ 📂 Android
+     ┗ 📂 media
+        ┗ 📂 com.whatsapp
+           ┗ 📂 WhatsApp
+              ┣ 📂 Databases  <-- Place your msgstore.db.crypt14 / msgstore.db.crypt15 file here
+              ┣ 📂 Media      <-- Copy your photos, audio, and video folders here
+              ┗ 📂 Backups    <-- Copy your settings and stickers folders here
+  ```
+
+### Step 2: Force Local Restoration by Bypassing Google Drive
+WhatsApp will always prioritize searching for backups on Google Drive over local storage. You must force the app to scan the internal memory:
+1. Install WhatsApp from the Google Play Store (do not open it yet). If you already opened it, go to System Settings -> Apps -> WhatsApp and select **"Force Stop"**.
+2. Turn on **Airplane Mode** on your phone and ensure **Wi-Fi is completely disabled** (the device must have no internet connection).
+3. Open WhatsApp, accept the terms, and enter your phone number.
+4. Since you have no connection, it will say it cannot connect. **Disable Airplane Mode temporarily** just to receive the 6-digit SMS verification code.
+5. Enter the code, and as soon as the screen transitions to *"Looking for backups..."*, **immediately enable Airplane Mode again**.
+6. Having no internet or Google Drive access forces the app to scan local storage, showing **"Local backup found"**.
+7. Tap **Restore**, wait for it to reach 100%, and enter your profile name.
+8. Once inside your chats, you can turn off Airplane Mode permanently. The media files in the `Media` folder will index in the background gradually.
+
 ## 🤝 Credits & Acknowledgements
 * **Original Author:** TripCode
 * **Core Contributors:** DrDeath1122 (Multi-threading backbone), YuriCosta (New restore system reverse engineering), macagua (SSL fixes).
-* **Modernization & UI:** Rebuilt with a modern web interface, local cryptography module, ADB phone transfer, and fully localized into 40 languages for global accessibility.
+* **Modernization & UI:** Rebuilt as a native desktop and mobile application (Windows, macOS, Linux, Android) using BeeWare/Briefcase and pywebview, featuring a local cryptography module, direct ADB phone transfer, and fully localized into 40 languages.
