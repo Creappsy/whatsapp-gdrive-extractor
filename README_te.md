@@ -1,0 +1,83 @@
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp లోగో" వెడల్పు="100"/>
+  <h1>WhatsApp Google డిస్క్ ఎక్స్‌ట్రాక్టర్ 🚀</h1>
+  <p><b>Google డిస్క్ నుండి మీ WhatsApp బ్యాకప్‌లను సంగ్రహించడానికి, డీక్రిప్ట్ చేయడానికి మరియు పునరుద్ధరించడానికి ఆధునిక, వేగవంతమైన మరియు బహుళ-భాషా సాధనం.</b></p>
+
+  <details>
+    <summary><b>🌍 Choose your language / Elige tu idioma</b></summary>
+    <p align="center">
+      <a href="README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 اردو</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 मराठी</a> • <a href="README_te.md">🇮🇳 తెలుగు</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 தமிழ்</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 ไทย</a> • <a href="README_fa.md">🇮🇷 فارسی</a> • <a href="README_gu.md">🇮🇳 ગુજરાતી</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Українська</a> • <a href="README_el.md">🇬🇷 Ελληνικά</a> • <a href="README_hu.md">🇭🇺 Magyar</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Български</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Српски</a>
+    </p>
+  </details>
+
+
+  [![పైథాన్](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+  [![డాకర్](https://img.shields.io/badge/Docker-Supported-2496ED.svg)](https://www.docker.com/)
+  [![i18n](https://img.shields.io/badge/Languages-40_Supported-success.svg)](#)
+  [![లైసెన్స్](https://img.shields.io/badge/License-MIT-green.svg)](#)
+</div>
+
+---
+
+## 🌟 ఫీచర్లు
+
+* **అందమైన వెబ్ UI/UX:** వెలికితీత ప్రక్రియ ద్వారా మీకు సులభంగా మార్గనిర్దేశం చేసేందుకు గ్లాస్‌మార్ఫిజం అంశాలతో కూడిన ఆధునిక, డార్క్-మోడ్ స్థానిక ఇంటర్‌ఫేస్.
+* **🌍 40 భాషలకు మద్దతు ఉంది:** స్థానికంగా అంతర్నిర్మిత 100% మానవ-నాణ్యత అనువాదాలు. మళ్లీ లోడ్ చేయకుండానే ఫ్లైలో భాషను మార్చండి!
+* **లోకల్ డిక్రిప్షన్ (.crypt14 / .crypt15):** మీ డేటాను ఎక్కడా అప్‌లోడ్ చేయకుండానే మీ E2EE హాష్ కీని ఉపయోగించి మీ SQLite డేటాబేస్‌లను సురక్షితంగా డీక్రిప్ట్ చేయడానికి పూర్తి స్థానిక క్రిప్టోగ్రఫీ మాడ్యూల్.
+* **డైరెక్ట్ ఆండ్రాయిడ్ బదిలీ (ADB):** డాష్‌బోర్డ్ నుండి ఒక్క క్లిక్‌తో మీ డౌన్‌లోడ్ చేసిన మరియు డీక్రిప్ట్ చేసిన డేటాబేస్‌ను నేరుగా మీ Android ఫోన్ నిల్వలోకి నెట్టండి.
+* **సురక్షిత ప్రమాణీకరణ:** గరిష్ట భద్రత కోసం Google OAuth టోకెన్‌లు మరియు యాప్ పాస్‌వర్డ్‌లు రెండింటికి మద్దతు ఇస్తుంది.
+
+## 📋 ముందస్తు అవసరాలు
+
+మీరు ప్రారంభించడానికి ముందు, మీరు కలిగి ఉన్నారని నిర్ధారించుకోండి:
+1. **Python 3.x** లేదా **Docker** ఇన్‌స్టాల్ చేయబడింది.
+2. WhatsApp ఇన్‌స్టాల్ చేయబడిన మరియు Google డిస్క్ బ్యాకప్‌లు ప్రారంభించబడిన Android పరికరం.
+3. మీ Google ఖాతా ఆధారాలు (లేదా [యాప్ పాస్‌వర్డ్](https://myaccount.google.com/apppasswords)).
+4. *ఐచ్ఛికం:* మీ పరికరం యొక్క Android ID (Google మిమ్మల్ని లాగ్ అవుట్ చేసే ప్రమాదాన్ని తగ్గించడానికి).
+
+## 🚀 ఇన్‌స్టాలేషన్ & వినియోగం
+
+### ఎంపిక 1: పైథాన్‌ని ఉపయోగించడం (UI కోసం సిఫార్సు చేయబడింది)
+
+1. రిపోజిటరీని క్లోన్ చేయండి:
+   ```బాష్
+   git క్లోన్ https://github.com/daferferso/whatsapp-gdrive-extractor.git
+   cd whatsapp-gdrive-extractor
+   ```
+
+2. అవసరమైన డిపెండెన్సీలను ఇన్‌స్టాల్ చేయండి:
+   ```బాష్
+   pip install -r requirements.txt
+   ```
+
+3. వెబ్ సర్వర్‌ని అమలు చేయండి:
+   ```బాష్
+   python server.py
+   ```
+4. ఆధునిక డాష్‌బోర్డ్‌ను యాక్సెస్ చేయడానికి మీ బ్రౌజర్‌ని తెరిచి, `http://localhost:5000`కి వెళ్లండి!
+
+### ఎంపిక 2: డాకర్‌ని ఉపయోగించడం
+
+1. రిపోజిటరీని క్లోన్ చేసి, దానిలోకి నావిగేట్ చేయండి.
+2. డాకర్ చిత్రాన్ని రూపొందించండి:
+   ```బాష్
+   డాకర్ బిల్డ్. -t whatsapp-gdrive-extractor
+   ```
+3. డాకర్ కంటైనర్‌ను అమలు చేయండి:
+   * **Linux:** `డాకర్ రన్ -v $(pwd):/app -p 5000:5000 -it whatsapp-gdrive-extractor`
+   * **Windows (PowerShell):** `డాకర్ రన్ -v .:/app -p 5000:5000 -it whatsapp-gdrive-extractor`
+
+## 🔑 ప్రమాణీకరణ గైడ్
+
+మీరు మీ ప్రామాణిక Google ఇమెయిల్ మరియు పాస్‌వర్డ్‌ని ఉపయోగించి సమస్యలను ఎదుర్కొంటే, **OAuth టోకెన్** పద్ధతిని ఉపయోగించండి (వెబ్ UIలో దశ 1):
+1. `https://getandroidapp.com/` లేదా ఏదైనా Google లాగిన్ పోర్టల్‌కి వెళ్లండి.
+2. మీ Google ఖాతాతో లాగిన్ చేయండి.
+3. డెవలపర్ సాధనాలను తెరవడానికి `F12`ని నొక్కండి.
+4. **అప్లికేషన్** -> **కుకీలు**కి వెళ్లండి.
+5. `oauth_token`ని కనుగొనండి (ఇది సాధారణంగా `oauth2_4/XXXXXXXXXXXXXXXX` లాగా కనిపిస్తుంది).
+6. దానిని కాపీ చేసి వెబ్ UIలో అతికించండి.
+
+## 🤝 క్రెడిట్‌లు & రసీదులు
+* **అసలు రచయిత:** ట్రిప్‌కోడ్
+* **కోర్ కంట్రిబ్యూటర్లు:** DrDeath1122 (మల్టీ-థ్రెడింగ్ బ్యాక్‌బోన్), యూరికోస్టా (న్యూ రీస్టోర్ సిస్టమ్ రివర్స్ ఇంజనీరింగ్), మకాగువా (SSL పరిష్కారాలు).
+* **ఆధునీకరణ & UI:** ఆధునిక వెబ్ ఇంటర్‌ఫేస్, స్థానిక క్రిప్టోగ్రఫీ మాడ్యూల్, ADB ఫోన్ బదిలీతో పునర్నిర్మించబడింది మరియు గ్లోబల్ యాక్సెసిబిలిటీ కోసం పూర్తిగా 40 భాషల్లోకి స్థానికీకరించబడింది.
