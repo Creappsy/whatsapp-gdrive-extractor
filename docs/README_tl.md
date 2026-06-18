@@ -1,83 +1,60 @@
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Logo ng WhatsApp" width="100"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="100"/>
   <h1>WhatsApp Google Drive Extractor 🚀</h1>
-  <p><b>Moderno, mabilis, at multi-language na tool upang i-extract, i-decrypt, at i-restore ang iyong mga backup sa WhatsApp mula sa Google Drive.</b></p>
+  <p><b>Native cross-platform desktop application (Windows, macOS, Linux), mabilis, magaan, at multi-language, upang i-extract, i-decrypt, at i-restore ang iyong mga backup sa WhatsApp mula sa Google Drive.</b></p>
 
   <details open>
     <summary><b>🌍 Choose your language / Elige tu idioma</b></summary>
     <p align="center">
-      <a href="../README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 اردو</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 मराठी</a> • <a href="README_te.md">🇮🇳 తెలుగు</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 தமிழ்</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 ไทย</a> • <a href="README_fa.md">🇮🇷 فارسی</a> • <a href="README_gu.md">🇮🇳 ગુજરાતી</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Українська</a> • <a href="README_el.md">🇬🇷 Ελληνικά</a> • <a href="README_hu.md">🇭🇺 Magyar</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Български</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Српски</a>
+      <a href="../README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 Urdu</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 Marathi</a> • <a href="README_te.md">🇮🇳 Telugu</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 Tamil</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 Thai</a> • <a href="README_fa.md">🇮🇷 Farsi</a> • <a href="README_gu.md">🇮🇳 Gujarati</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Ukrainian</a> • <a href="README_el.md">🇬🇷 Greek</a> • <a href="README_hu.md">🇭🇺 Hungarian</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Bulgarian</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Serbian</a>
     </p>
   </details>
 
-
-  [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
-  [![Docker](https://img.shields.io/badge/Docker-Supported-2496ED.svg)](https://www.docker.com/)
-  [![i18n](https://img.shields.io/badge/Languages-40_Supported-success.svg)](#)
-  [![License](https://img.shields.io/badge/License-MIT-green.svg)](#)
+  [![Rust](https://img.shields.io/badge/Rust-1.77%2B-orange.svg)](https://www.rust-lang.org/)
+  [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
+  [![i18n](https://img.shields.io/badge/Mga_wika-40_Sinusuportahan-success.svg)](#)
+  [![License](https://img.shields.io/badge/Lisensya-MIT-green.svg)](#)
 </div>
 
 ---
 
-## 🌟 Mga Tampok
+## 🌟 Mga tampok
 
-* **Magandang Web UI/UX:** Isang moderno, dark-mode na katutubong interface na may mga elemento ng glassmorphism upang madaling gabayan ka sa proseso ng pagkuha.
-* **🌍 40 Mga Suportadong Wika:** 100% na mga pagsasalin sa kalidad ng tao na native na built-in. Baguhin ang wika on-the-fly nang hindi nagre-reload!
-* **Local Decryption (.crypt14 / .crypt15):** Isang ganap na lokal na cryptography module upang ligtas na i-decrypt ang iyong mga SQLite database gamit ang iyong E2EE hash key nang hindi ina-upload ang iyong data kahit saan.
-* **Direct Android Transfer (ADB):** Itulak ang iyong na-download at na-decrypt na database nang direkta sa storage ng iyong Android phone sa isang pag-click mula sa dashboard.
-* **Ligtas na Pagpapatotoo:** Sinusuportahan ang parehong mga token ng Google OAuth at Mga Password ng App para sa maximum na seguridad.
+* **Magandang UI/UX:** Isang modernong desktop interface na may disenyong glassmorphism, dark mode, at step-by-step na gabay sa pagpapanumbalik.
+* **🌍 40 Mga Sinusuportahang Wika:** Ang kalidad na internasyonalisasyon ay katutubong isinama. Agad na lumipat ng mga wika.
+* **Ultralight at Independent:** Muling itinayo gamit ang **Tauri & Rust**, na binabawasan ang laki ng binary sa **~10MB** lang na walang mga external na dependency (walang Python runtime o .NET na kinakailangan sa host system).
+* **Secure na Keyring Storage:** Direktang sine-save ang iyong mga Google OAuth token sa native secure na keyring ng operating system (Credential Manager sa Windows, Keychain sa macOS).
+* **Lokal na E2EE Decryption (.crypt14 / .crypt15):** High-speed, secure, at ganap na lokal na AES-256-GCM WhatsApp database decryption gamit ang Rust.
+* **Direktang Paglipat sa Telepono (ADB):** Ibalik ang iyong mga na-decrypt na database nang direkta sa iyong Android phone sa isang pag-click, ang sistema ng pagtawag sa ADB nang katutubong.
+
+---
 
 ## 📋 Mga kinakailangan
 
-Bago ka magsimula, tiyaking mayroon kang:
-1. Naka-install ang **Python 3.x** o **Docker**.
-2. Isang Android device na may naka-install na WhatsApp at pinagana ang mga backup ng Google Drive.
-3. Mga kredensyal ng iyong Google account (o isang [App Password](https://myaccount.google.com/apppasswords)).
-4. *Opsyonal:* Ang Android ID ng iyong device (upang bawasan ang panganib na ma-log out ka ng Google).
+Upang bumuo at tumakbo mula sa pinagmulan, tiyaking mayroon kang:
+1. **kalawang at Cargo** (v1.77 o superior)
+2. **Node.js & npm**
+3. Isang Android device na may naka-enable na USB Debugging (kung direktang nagre-restore sa pamamagitan ng ADB).
 
-## 🚀 Pag-install at Paggamit
+---
 
-### Opsyon 1: Paggamit ng Python (Inirerekomenda para sa UI)
+## 🚀 Pagpapatupad at Pagpapaunlad
 
-1. I-clone ang repositoryo:
-   ```bash
-   git clone https://github.com/daferferso/whatsapp-gdrive-extractor.git
-   cd whatsapp-gdrive-extractor
-   ```
+### Paglulunsad ng Application
+I-double click lang ang [run.bat](../run.bat) file sa ugat ng proyekto.
+Agad nitong bubuksan ang pinagsama-samang production executable (`app.exe`) o fallback sa development mode kung hindi na-compile.
 
-2. I-install ang mga kinakailangang dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Tumatakbo sa Development Mode
+Upang simulan ang development mode gamit ang hot-reloading:
+```bash
+npx tauri dev
+```
 
-3. Patakbuhin ang Web Server:
-   ```bash
-   python server.py
-   ```
-4. Buksan ang iyong browser at pumunta sa `http://localhost:5000` upang ma-access ang modernong dashboard!
+### Pag-iipon at Pag-bundle
+Upang bumuo ng mga self-contained, nilagdaang production installer packages (MSI, EXE setup):
+```bash
+npx tauri build
+```
+Ang mga resultang installer ay makikita sa `src-tauri/target/release/bundle/`.
 
-### Opsyon 2: Paggamit ng Docker
-
-1. I-clone ang repository at mag-navigate papunta dito.
-2. Buuin ang imahe ng Docker:
-   ```bash
-   build ng docker. -t whatsapp-gdrive-extractor
-   ```
-3. Patakbuhin ang lalagyan ng Docker:
-   * **Linux:** `docker run -v $(pwd):/app -p 5000:5000 -it whatsapp-gdrive-extractor`
-   * **Windows (PowerShell):** `docker run -v .:/app -p 5000:5000 -it whatsapp-gdrive-extractor`
-
-## 🔑 Gabay sa Pagpapatunay
-
-Kung nakakaranas ka ng mga isyu sa paggamit ng iyong karaniwang Google Email at Password, gamitin ang **OAuth Token** na paraan (Hakbang 1 sa Web UI):
-1. Pumunta sa `https://getandroidapp.com/` o anumang portal sa pag-login sa Google.
-2. Mag-log in gamit ang iyong Google account.
-3. Pindutin ang `F12` upang buksan ang Mga Tool ng Developer.
-4. Pumunta sa **Application** -> **Cookies**.
-5. Hanapin ang `oauth_token` (Karaniwan itong mukhang `oauth2_4/XXXXXXXXXXXXXXXXXX`).
-6. Kopyahin at i-paste ito sa Web UI.
-
-## 🤝 Mga Kredito at Pasasalamat
-* **Orihinal na May-akda:** TripCode
-* **Mga Core Contributor:** DrDeath1122 (Multi-threading backbone), YuriCosta (Bagong restore system reverse engineering), macagua (SSL fixes).
-* **Modernisasyon at UI:** Muling itinayo gamit ang modernong web interface, lokal na cryptography module, paglilipat ng telepono ng ADB, at ganap na na-localize sa 40 wika para sa pandaigdigang accessibility.
+Tingnan mo [DISTRIBUTION.md](../DISTRIBUTION.md) para sa higit pang mga detalye sa packaging at pagpirma.

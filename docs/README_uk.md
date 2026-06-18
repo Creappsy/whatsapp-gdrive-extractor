@@ -1,83 +1,60 @@
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Логотип WhatsApp" width="100"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="100"/>
   <h1>WhatsApp Google Drive Extractor 🚀</h1>
-  <p><b>Сучасний, швидкий і багатомовний інструмент для видобування, розшифровки та відновлення резервних копій WhatsApp із Диска Google.</b></p>
+  <p><b>Власна міжплатформна настільна програма (Windows, macOS, Linux), швидка, легка та багатомовна для вилучення, розшифровки та відновлення резервних копій WhatsApp із Google Drive.</b></p>
 
   <details open>
     <summary><b>🌍 Choose your language / Elige tu idioma</b></summary>
     <p align="center">
-      <a href="../README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 اردو</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 मराठी</a> • <a href="README_te.md">🇮🇳 తెలుగు</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 தமிழ்</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 ไทย</a> • <a href="README_fa.md">🇮🇷 فارسی</a> • <a href="README_gu.md">🇮🇳 ગુજરાતી</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Українська</a> • <a href="README_el.md">🇬🇷 Ελληνικά</a> • <a href="README_hu.md">🇭🇺 Magyar</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Български</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Српски</a>
+      <a href="../README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 Urdu</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 Marathi</a> • <a href="README_te.md">🇮🇳 Telugu</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 Tamil</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 Thai</a> • <a href="README_fa.md">🇮🇷 Farsi</a> • <a href="README_gu.md">🇮🇳 Gujarati</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Ukrainian</a> • <a href="README_el.md">🇬🇷 Greek</a> • <a href="README_hu.md">🇭🇺 Hungarian</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Bulgarian</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Serbian</a>
     </p>
   </details>
 
-
-  [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
-  [![Docker](https://img.shields.io/badge/Docker-Supported-2496ED.svg)](https://www.docker.com/)
-  [![i18n](https://img.shields.io/badge/Languages-40_Supported-success.svg)](#)
-  [![Ліцензія](https://img.shields.io/badge/License-MIT-green.svg)](#)
+  [![Rust](https://img.shields.io/badge/Rust-1.77%2B-orange.svg)](https://www.rust-lang.org/)
+  [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
+  [![i18n](https://img.shields.io/badge/Мови-40_Підтримується-success.svg)](#)
+  [![License](https://img.shields.io/badge/Ліцензія-MIT-green.svg)](#)
 </div>
 
 ---
 
-## 🌟 Особливості
+## 🌟 особливості
 
-* **Чудовий веб-інтерфейс/UX:** сучасний нативний інтерфейс у темному режимі з елементами скломорфізму, які легко допоможуть вам у процесі вилучення.
-* **🌍 Підтримується 40 мов: ** 100% вбудований переклад людської якості. Змінюйте мову на льоту без перезавантаження!
-* **Локальне розшифровування (.crypt14 / .crypt15):** Повністю локальний криптографічний модуль для безпечного розшифрування ваших баз даних SQLite за допомогою хеш-ключа E2EE без завантаження ваших даних куди-небудь.
-* **Пряма передача Android (ADB):** Перемістіть завантажену та розшифровану базу даних безпосередньо в пам’ять телефону Android одним клацанням миші на інформаційній панелі.
-* **Безпечна автентифікація:** підтримує маркери Google OAuth і паролі додатків для максимальної безпеки.
+* **Гарний UI/UX:** Сучасний інтерфейс настільного комп’ютера зі скломорфізмом, темним режимом і покроковим посібником із відновлення.
+* **🌍 40 підтримуваних мов:** Інтегрована якісна інтернаціоналізація. Перемикайте мови миттєво.
+* **Надлегкий і незалежний:** Перебудовано за допомогою **Tauri & Rust**, зменшуючи двійковий розмір лише до **~10 МБ** із нульовими зовнішніми залежностями (у хост-системі не потрібні середовища виконання Python або .NET).
+* **Безпечне зберігання ключів:** Зберігає ваші токени Google OAuth безпосередньо у рідному захищеному брелоку операційної системи (Credential Manager у Windows, Keychain у macOS).
+* **Локальна розшифровка E2EE (.crypt14 / .crypt15):** Високошвидкісне, безпечне та повністю локальне дешифрування бази даних WhatsApp AES-256-GCM за допомогою Rust.
+* **Прямий переказ на телефон (ADB):** Відновіть розшифровані бази даних безпосередньо на телефоні Android одним клацанням миші, викликавши системний ADB.
 
-## 📋 Передумови
+---
 
-Перш ніж почати, переконайтеся, що у вас є:
-1. Встановлено **Python 3.x** або **Docker**.
-2. Пристрій Android із встановленим WhatsApp і ввімкненим резервним копіюванням Google Drive.
-3. Облікові дані вашого облікового запису Google (або [пароль програми](https://myaccount.google.com/apppasswords)).
-4. *Необов’язково:* Ідентифікатор Android вашого пристрою (щоб зменшити ризик виходу Google із системи).
+## 📋 Вимоги
 
-## 🚀 Встановлення та використання
+Щоб створити та запустити з джерела, переконайтеся, що у вас є:
+1. **Іржа та вантажі** (v1.77 або вище)
+2. **Node.js & npm**
+3. Пристрій Android із увімкненим USB Debugging (якщо відновлення здійснюється безпосередньо через ADB).
 
-### Варіант 1: використання Python (рекомендовано для інтерфейсу користувача)
+---
 
-1. Клонуйте репозиторій:
-   ```баш
-   git клон https://github.com/daferferso/whatsapp-gdrive-extractor.git
-   cd WhatsApp-gdrive-extractor
-   ```
+## 🚀 Виконання та розробка
 
-2. Встановіть необхідні залежності:
-   ```баш
-   pip install -r requirements.txt
-   ```
+### Запуск програми
+Просто двічі клацніть на [run.bat](../run.bat) файл у корені проекту.
+Він миттєво відкриє скомпільований робочий виконуваний файл (`app.exe`) або повернеться до режиму розробки, якщо не скомпільовано.
 
-3. Запустіть веб-сервер:
-   ```баш
-   python server.py
-   ```
-4. Відкрийте браузер і перейдіть до `http://localhost:5000`, щоб отримати доступ до сучасної інформаційної панелі!
+### Запуск у режимі розробки
+Щоб запустити режим розробки з гарячим перезавантаженням:
+```bash
+npx tauri dev
+```
 
-### Варіант 2: використання Docker
+### Компіляція та об’єднання
+Щоб створити самостійні підписані робочі пакети встановлення (MSI, налаштування EXE):
+```bash
+npx tauri build
+```
+Отримані інсталятори будуть розташовані в `src-tauri/target/release/bundle/`.
 
-1. Клонуйте репозиторій і перейдіть до нього.
-2. Створіть образ Docker:
-   ```баш
-   складання докера. -t WhatsApp-gdrive-extractor
-   ```
-3. Запустіть контейнер Docker:
-   * **Linux:** `docker run -v $(pwd):/app -p 5000:5000 -it whatsapp-gdrive-extractor`
-   * **Windows (PowerShell):** `docker run -v .:/app -p 5000:5000 -it whatsapp-gdrive-extractor`
-
-## 🔑 Керівництво з автентифікації
-
-Якщо у вас виникли проблеми зі стандартною електронною поштою та паролем Google, скористайтеся методом **OAuth Token** (Крок 1 у веб-інтерфейсі):
-1. Перейдіть на `https://getandroidapp.com/` або будь-який портал входу Google.
-2. Увійдіть за допомогою свого облікового запису Google.
-3. Натисніть `F12`, щоб відкрити інструменти розробника.
-4. Перейдіть до **Додаток** -> **Файли cookie**.
-5. Знайдіть `oauth_token` (зазвичай він виглядає як `oauth2_4/XXXXXXXXXXXXXXXXX`).
-6. Скопіюйте та вставте його у веб-інтерфейс.
-
-## 🤝 Подяки та подяки
-* **Оригінальний автор:** TripCode
-* **Основні учасники:** DrDeath1122 (багатопотокова магістраль), YuriCosta (нова реверсивна інженерія системи відновлення), macagua (виправлення SSL).
-* **Модернізація та користувальницький інтерфейс:** перебудовано з сучасним веб-інтерфейсом, локальним модулем криптографії, пересиланням телефону ADB і повністю локалізовано на 40 мов для глобальної доступності.
+див [DISTRIBUTION.md](../DISTRIBUTION.md) детальніше про упаковку та підпис.
