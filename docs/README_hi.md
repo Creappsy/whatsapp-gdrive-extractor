@@ -1,83 +1,60 @@
-<div संरेखण='केंद्र'>
-  <img src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg' alt='व्हाट्सएप लोगो' चौड़ाई='100'/>
-  <h1>व्हाट्सएप गूगल ड्राइव एक्सट्रैक्टर 🚀</h1>
-  <p><b>Google ड्राइव से आपके व्हाट्सएप बैकअप को निकालने, डिक्रिप्ट करने और पुनर्स्थापित करने के लिए आधुनिक, तेज़ और बहुभाषी टूल।</b></p>
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="100"/>
+  <h1>WhatsApp Google Drive Extractor 🚀</h1>
+  <p><b>Google ड्राइव से आपके व्हाट्सएप बैकअप को निकालने, डिक्रिप्ट करने और पुनर्स्थापित करने के लिए नेटिव क्रॉस-प्लेटफ़ॉर्म डेस्कटॉप एप्लिकेशन (विंडोज़, मैकओएस, लिनक्स), तेज़, हल्का और बहु-भाषा।</b></p>
 
   <details open>
     <summary><b>🌍 Choose your language / Elige tu idioma</b></summary>
     <p align="center">
-      <a href="../README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 اردو</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 मराठी</a> • <a href="README_te.md">🇮🇳 తెలుగు</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 தமிழ்</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 ไทย</a> • <a href="README_fa.md">🇮🇷 فارسی</a> • <a href="README_gu.md">🇮🇳 ગુજરાતી</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Українська</a> • <a href="README_el.md">🇬🇷 Ελληνικά</a> • <a href="README_hu.md">🇭🇺 Magyar</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Български</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Српски</a>
+      <a href="../README.md">🇺🇸 English</a> • <a href="README_es.md">🇪🇸 Español</a> • <a href="README_zh.md">🇨🇳 中文</a> • <a href="README_hi.md">🇮🇳 हिन्दी</a> • <a href="README_fr.md">🇫🇷 Français</a> • <a href="README_ar.md">🇸🇦 العربية</a> • <a href="README_bn.md">🇧🇩 বাংলা</a> • <a href="README_ru.md">🇷🇺 Русский</a> • <a href="README_pt.md">🇵🇹 Português</a> • <a href="README_ur.md">🇵🇰 Urdu</a> • <a href="README_id.md">🇮🇩 Bahasa Indonesia</a> • <a href="README_de.md">🇩🇪 Deutsch</a> • <a href="README_ja.md">🇯🇵 日本語</a> • <a href="README_mr.md">🇮🇳 Marathi</a> • <a href="README_te.md">🇮🇳 Telugu</a> • <a href="README_tr.md">🇹🇷 Türkçe</a> • <a href="README_ta.md">🇮🇳 Tamil</a> • <a href="README_vi.md">🇻🇳 Tiếng Việt</a> • <a href="README_tl.md">🇵🇭 Tagalog</a> • <a href="README_ko.md">🇰🇷 한국어</a> • <a href="README_it.md">🇮🇹 Italiano</a> • <a href="README_pl.md">🇵🇱 Polski</a> • <a href="README_nl.md">🇳🇱 Nederlands</a> • <a href="README_th.md">🇹🇭 Thai</a> • <a href="README_fa.md">🇮🇷 Farsi</a> • <a href="README_gu.md">🇮🇳 Gujarati</a> • <a href="README_ro.md">🇷🇴 Română</a> • <a href="README_uk.md">🇺🇦 Ukrainian</a> • <a href="README_el.md">🇬🇷 Greek</a> • <a href="README_hu.md">🇭🇺 Hungarian</a> • <a href="README_cs.md">🇨🇿 Čeština</a> • <a href="README_sv.md">🇸🇪 Svenska</a> • <a href="README_da.md">🇩🇰 Dansk</a> • <a href="README_fi.md">🇫🇮 Suomi</a> • <a href="README_no.md">🇳🇴 Norsk</a> • <a href="README_sk.md">🇸🇰 Slovenčina</a> • <a href="README_bg.md">🇧🇬 Bulgarian</a> • <a href="README_hr.md">🇭🇷 Hrvatski</a> • <a href="README_sr.md">🇷🇸 Serbian</a>
     </p>
   </details>
 
-
-  [![पायथन](https://img.shields.io/ Badge/Python-3.x-blue.svg)](https://www.python.org/)
-  [![डॉकर](https://img.shields.io/ Badge/Docker-Supported-2496ED.svg)](https://www.docker.com/)
-  [![i18n](https://img.shields.io/ Badge/भाषाएँ-40_Supported-success.svg)](#)
-  [![लाइसेंस](https://img.shields.io/ Badge/License-MIT-green.svg)](#)
+  [![Rust](https://img.shields.io/badge/Rust-1.77%2B-orange.svg)](https://www.rust-lang.org/)
+  [![Tauri](https://img.shields.io/badge/Tauri-v2-blue.svg)](https://tauri.app/)
+  [![i18n](https://img.shields.io/badge/बोली-40_का_समर्थन_किया-success.svg)](#)
+  [![License](https://img.shields.io/badge/लाइसेंस-MIT-green.svg)](#)
 </div>
 
 ---
 
 ## 🌟 विशेषताएँ
 
-* **खूबसूरत वेब यूआई/यूएक्स:** ग्लासमॉर्फिज्म तत्वों के साथ एक आधुनिक, डार्क-मोड देशी इंटरफ़ेस जो आपको निष्कर्षण प्रक्रिया में आसानी से मार्गदर्शन करता है।
-* **🌍 40 भाषाएँ समर्थित:** 100% मानव-गुणवत्ता वाले अनुवाद मूल रूप से निर्मित। पुनः लोड किए बिना तुरंत भाषा बदलें!
-* **स्थानीय डिक्रिप्शन (.crypt14 / .crypt15):** आपके डेटा को कहीं भी अपलोड किए बिना आपकी E2EE हैश कुंजी का उपयोग करके आपके SQLite डेटाबेस को सुरक्षित रूप से डिक्रिप्ट करने के लिए एक पूरी तरह से स्थानीय क्रिप्टोग्राफी मॉड्यूल।
-* **डायरेक्ट एंड्रॉइड ट्रांसफर (एडीबी):** डैशबोर्ड से एक क्लिक के साथ अपने डाउनलोड किए गए और डिक्रिप्ट किए गए डेटाबेस को सीधे अपने एंड्रॉइड फोन के स्टोरेज में पुश करें।
-* **सुरक्षित प्रमाणीकरण:** अधिकतम सुरक्षा के लिए Google OAuth टोकन और ऐप पासवर्ड दोनों का समर्थन करता है।
+* **सुंदर यूआई/यूएक्स:** ग्लासमॉर्फ़िज़्म डिज़ाइन, डार्क मोड और चरण-दर-चरण पुनर्स्थापना मार्गदर्शिका के साथ एक आधुनिक डेस्कटॉप इंटरफ़ेस।
+* **🌍 40 समर्थित भाषाएँ:** गुणवत्ता अंतर्राष्ट्रीयकरण मूल रूप से एकीकृत। तुरंत भाषाएँ बदलें.
+* **अल्ट्रालाइट और स्वतंत्र:** **टौरी और रस्ट** का उपयोग करके पुनर्निर्माण किया गया, शून्य बाहरी निर्भरता (मेजबान सिस्टम पर कोई पायथन रनटाइम या .NET की आवश्यकता नहीं) के साथ बाइनरी आकार को घटाकर केवल **~10MB** कर दिया गया।
+* **सुरक्षित कीरिंग भंडारण:** आपके Google OAuth टोकन को सीधे ऑपरेटिंग सिस्टम के मूल सुरक्षित कीरिंग (Windows में क्रेडेंशियल मैनेजर, macOS में कीचेन) में सहेजता है।
+* **स्थानीय E2EE डिक्रिप्शन (.crypt14 / .crypt15):** रस्ट का उपयोग करके उच्च गति, सुरक्षित और पूरी तरह से स्थानीय AES-256-GCM व्हाट्सएप डेटाबेस डिक्रिप्शन।
+* **फ़ोन पर सीधा स्थानांतरण (एडीबी):** अपने डिक्रिप्ट किए गए डेटाबेस को एक क्लिक से सीधे अपने एंड्रॉइड फोन पर पुनर्स्थापित करें, सिस्टम एडीबी को मूल रूप से कॉल करें।
 
-## 📋 पूर्वावश्यकताएँ
+---
 
-शुरू करने से पहले, सुनिश्चित करें कि आपके पास:
-1. **पायथन 3.x** या **डॉकर** स्थापित।
-2. एक एंड्रॉइड डिवाइस जिसमें व्हाट्सएप इंस्टॉल है और Google ड्राइव बैकअप सक्षम है।
-3. आपका Google खाता क्रेडेंशियल (या एक [ऐप पासवर्ड] (https://myaccount.google.com/apppasswords))।
-4. *वैकल्पिक:* आपके डिवाइस की एंड्रॉइड आईडी (Google द्वारा आपको लॉग आउट करने के जोखिम को कम करने के लिए)।
+## 📋 आवश्यकताएं
 
-## 🚀 स्थापना एवं उपयोग
+स्रोत से निर्माण और चलाने के लिए, सुनिश्चित करें कि आपके पास:
+1. **जंग और माल** (v1.77 या श्रेष्ठ)
+2. **Node.js & npm**
+3. यूएसबी डिबगिंग सक्षम एक एंड्रॉइड डिवाइस (यदि एडीबी के माध्यम से सीधे पुनर्स्थापित किया जा रहा है)।
 
-### विकल्प 1: पायथन का उपयोग करना (यूआई के लिए अनुशंसित)
+---
 
-1. रिपॉजिटरी को क्लोन करें:
-   ```बैश
-   गिट क्लोन https://github.com/daferferso/whatsapp-gdrive-extractor.git
-   सीडी व्हाट्सएप-जीड्राइव-एक्सट्रैक्टर
-   ```
+## 🚀 निष्पादन एवं विकास
 
-2. आवश्यक निर्भरताएँ स्थापित करें:
-   ```बैश
-   पिप इंस्टॉल -आर आवश्यकताएँ.txt
-   ```
+### एप्लिकेशन लॉन्च करना
+बस डबल-क्लिक करें [run.bat](../run.bat) प्रोजेक्ट के मूल में फ़ाइल.
+यह संकलित उत्पादन निष्पादन योग्य (`app.exe`) को तुरंत खोल देगा या संकलित नहीं होने पर विकास मोड में वापस आ जाएगा।
 
-3. वेब सर्वर चलाएँ:
-   ```बैश
-   पायथन सर्वर.py
-   ```
-4. अपना ब्राउज़र खोलें और आधुनिक डैशबोर्ड तक पहुंचने के लिए `http://localhost:5000` पर जाएं!
+### विकास मोड में चल रहा है
+हॉट-रीलोडिंग के साथ विकास मोड शुरू करने के लिए:
+```bash
+npx tauri dev
+```
 
-### विकल्प 2: डॉकर का उपयोग करना
+### संकलन एवं बंडलिंग
+स्व-निहित, हस्ताक्षरित उत्पादन इंस्टॉलर पैकेज (MSI, EXE सेटअप) उत्पन्न करने के लिए:
+```bash
+npx tauri build
+```
+परिणामी इंस्टॉलर `src-tauri/target/release/bundle/` में स्थित होंगे।
 
-1. रिपॉजिटरी को क्लोन करें और उसमें नेविगेट करें।
-2. डॉकर छवि बनाएं:
-   ```बैश
-   डोकर निर्माण। -t व्हाट्सएप-जीड्राइव-एक्सट्रैक्टर
-   ```
-3. डॉकर कंटेनर चलाएँ:
-   * **लिनक्स:** `docker run -v $(pwd):/app -p 5000:5000 -it WhatsApp-gdrive-extractor`
-   * **विंडोज़ (पावरशेल):** `डॉकर रन -v.:/ऐप -पी 5000:5000 -आईटी व्हाट्सएप-जीड्राइव-एक्सट्रैक्टर`
-
-## 🔑 प्रमाणीकरण मार्गदर्शिका
-
-यदि आप अपने मानक Google ईमेल और पासवर्ड का उपयोग करने में समस्याओं का अनुभव करते हैं, तो **OAuth टोकन** विधि (वेब यूआई पर चरण 1) का उपयोग करें:
-1. `https://getandroidapp.com/` या किसी Google लॉगिन पोर्टल पर जाएं।
-2. अपने Google खाते से लॉग इन करें।
-3. डेवलपर टूल खोलने के लिए `F12` दबाएँ।
-4. **एप्लिकेशन** -> **कुकीज़** पर जाएं।
-5. `oauth_token` ढूंढें (यह आमतौर पर `oauth2_4/XXXXXXXXXXXXXXXX` जैसा दिखता है)।
-6. इसे कॉपी करके वेब यूआई में पेस्ट करें।
-
-## 🤝 श्रेय एवं आभार
-* **मूल लेखक:** ट्रिपकोड
-* **मुख्य योगदानकर्ता:** DrDeath1122 (मल्टी-थ्रेडिंग बैकबोन), यूरीकोस्टा (नया रिस्टोर सिस्टम रिवर्स इंजीनियरिंग), मैकागुआ (एसएसएल फिक्स)।
-* **आधुनिकीकरण और यूआई:** एक आधुनिक वेब इंटरफेस, स्थानीय क्रिप्टोग्राफी मॉड्यूल, एडीबी फोन ट्रांसफर के साथ पुनर्निर्माण किया गया और वैश्विक पहुंच के लिए 40 भाषाओं में पूरी तरह से स्थानीयकृत किया गया।
+देखना [DISTRIBUTION.md](../DISTRIBUTION.md) पैकेजिंग और हस्ताक्षर के बारे में अधिक जानकारी के लिए।
