@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, jsonify, session, Response
+import os
 import uuid
 import threading
 import queue
 import json
 import time
+from flask import Flask, render_template, request, jsonify, session, Response
 
 try:
     from .extractor import WaBackup, get_backup_info
@@ -11,9 +12,7 @@ except ImportError:
     from extractor import WaBackup, get_backup_info
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24) if 'os' in globals() else 'super-secret-key'
-
-import os
+app.secret_key = os.urandom(24)
 
 # In-memory storage for active sessions to avoid saving credentials to disk
 active_sessions = {}
@@ -245,7 +244,13 @@ def open_folder():
     if not backup_id:
         return jsonify({"success": False, "error": "No backup_id provided"}), 400
         
-    backup_path = os.path.join(os.getcwd(), backup_id)
+    # Prevenir Directory Traversal sanitizando la ruta
+    base_dir = os.path.abspath(os.getcwd())
+    backup_path = os.path.abspath(os.path.join(base_dir, backup_id))
+    
+    if not backup_path.startswith(base_dir):
+        return jsonify({"success": False, "error": "Acceso no autorizado"}), 403
+        
     if not os.path.exists(backup_path):
         return jsonify({"success": False, "error": "La copia de seguridad no se ha descargado todavía localmente."}), 404
         
@@ -256,7 +261,6 @@ def open_folder():
         return jsonify({"success": False, "error": str(e)}), 500
 
 if __name__ == '__main__':
-    import os
     # Detect if we should run in headless mode (e.g. inside Docker/Podman, or explicitly requested)
     run_headless = os.environ.get('HEADLESS', '0') == '1' or os.path.exists('/.dockerenv') or os.environ.get('CONTAINER', '') != ''
     
@@ -270,5 +274,7 @@ if __name__ == '__main__':
             run_headless = True
 
     if run_headless:
-        # Run Flask server directly
-        app.run(host="0.0.0.0", port=5000, debug=False)
+        # Run Flask server directly (bind to 0.0.0.0 if in container, otherwise localhost for security)
+        is_container = os.path.exists('/.dockerenv') or os.environ.get('CONTAINER', '') != ''
+        host = "0.0.0.0" if is_container else "127.0.0.1"
+        app.run(host=host, port=5000, debug=False)
