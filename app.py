@@ -176,6 +176,60 @@ def decrypt_file():
         if os.path.exists(temp_input.name):
             os.remove(temp_input.name)
 
+@app.route('/api/push_to_phone', methods=['POST'])
+def push_to_phone():
+    data = request.json
+    backup_id = data.get('backup_id')
+    if not backup_id:
+        return jsonify({"success": False, "error": "No backup_id provided"})
+        
+    backup_path = os.path.join(os.getcwd(), backup_id, "files")
+    if not os.path.exists(backup_path):
+        return jsonify({"success": False, "error": f"La copia de seguridad no se ha descargado localmente aún. Por favor, descárgala primero."})
+
+    try:
+        import adbutils
+        adb = adbutils.AdbClient(host="127.0.0.1", port=5037)
+        devices = adb.device_list()
+        
+        if not devices:
+            return jsonify({"success": False, "error": "No se detectó ningún celular conectado. Asegúrate de conectarlo por cable y activar la 'Depuración USB'."})
+            
+        device = devices[0]
+        
+        # Rutas de destino en Android
+        paths = [
+            "/sdcard/WhatsApp", # Android < 11 y Samsung
+            "/sdcard/Android/media/com.whatsapp/WhatsApp" # Android >= 11
+        ]
+        
+        # Subcarpetas a copiar
+        subdirs_to_sync = ["Databases", "Backups"]
+        
+        logs = []
+        for dest_base in paths:
+            # Crear la ruta base en el celular si no existe
+            device.shell(f"mkdir -p {dest_base}")
+            
+            for subdir in subdirs_to_sync:
+                local_subdir = os.path.join(backup_path, subdir)
+                if os.path.exists(local_subdir):
+                    dest_subdir = f"{dest_base}/{subdir}"
+                    device.shell(f"mkdir -p {dest_subdir}")
+                    
+                    # Push de los archivos individuales en ese directorio
+                    for filename in os.listdir(local_subdir):
+                        local_file = os.path.join(local_subdir, filename)
+                        if os.path.isfile(local_file):
+                            dest_file = f"{dest_subdir}/{filename}"
+                            device.sync.push(local_file, dest_file)
+                            logs.append(f"Copiado: {filename} a {dest_base}")
+                            
+        return jsonify({"success": True, "logs": logs})
+        
+    except Exception as e:
+        return jsonify({"success": False, "error": f"Error ADB: {str(e)}"})
+
 if __name__ == '__main__':
     import webview
     window = webview.create_window('WhatsApp Google Drive Extractor', app, width=1000, height=700)

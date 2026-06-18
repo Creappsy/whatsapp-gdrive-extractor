@@ -147,10 +147,49 @@ function renderBackups(backups) {
             <div class="stat-row"><span>Fecha</span><span>${new Date(b.uploadTime).toLocaleString()}</span></div>
             <div class="backup-actions">
                 <button class="btn primary" onclick="startSync('${b.id}')">⬇ Descargar</button>
+                <button class="btn" style="background-color: var(--success); color: white;" onclick="pushToPhone('${b.id}')">📲 Transferir al Celular</button>
             </div>
         `;
         backupsContainer.appendChild(div);
     });
+}
+
+window.pushToPhone = async function(backupId) {
+    if (!confirm("Asegúrate de que tu celular está conectado por USB y tiene la Depuración USB activada.\n\nEsta acción copiará la base de datos descargada al almacenamiento de tu celular.\n\n¿Deseas continuar?")) return;
+    
+    document.getElementById('progress-modal').classList.remove('hidden');
+    document.getElementById('progress-status').textContent = "Conectando al dispositivo y transfiriendo archivos por favor espera...";
+    document.getElementById('progress-status').style.color = "var(--text)";
+    document.getElementById('progress-fill').style.width = "50%";
+    
+    try {
+        const res = await fetch('/api/push_to_phone', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ backup_id: backupId })
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+            document.getElementById('progress-status').textContent = "¡Transferencia Exitosa al celular!";
+            document.getElementById('progress-status').style.color = "var(--primary)";
+            document.getElementById('progress-fill').style.width = "100%";
+            setTimeout(() => {
+                document.getElementById('progress-modal').classList.add('hidden');
+                alert("¡Transferencia completada!\n\nRevisa la carpeta de WhatsApp en tu celular e instala WhatsApp para restaurar.");
+            }, 2000);
+        } else {
+            document.getElementById('progress-status').textContent = "Error: " + data.error;
+            document.getElementById('progress-status').style.color = "var(--error)";
+            setTimeout(() => {
+                document.getElementById('progress-modal').classList.add('hidden');
+                alert("Hubo un error: " + data.error);
+            }, 4000);
+        }
+    } catch (e) {
+        document.getElementById('progress-modal').classList.add('hidden');
+        alert("Error al intentar comunicarse con el servidor local para la transferencia.");
+    }
 }
 
 window.startSync = async function(backupId) {
