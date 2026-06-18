@@ -25,3 +25,7 @@ logs/
 # Downloaded backup files (folders made of digits, e.g. 5215549688473)
 [0-9]*/
 
+
+# Ignore backup folders
+[0-9]*
+
