@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   rust:
@@ -68,7 +68,7 @@ jobs:
     name: Publish to GitHub Packages
     needs: node-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.repository == 'YOUR_USERNAME/YOUR_REPO'
+    if: github.ref == 'refs/heads/master' && github.repository == 'YOUR_USERNAME/YOUR_REPO'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node.js
