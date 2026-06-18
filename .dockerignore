@@ -1,0 +1,11 @@
+venv
+__pycache__
+.git
+*.bak
+Media/
+WhatsApp Documents/
+WhatsApp Video/
+WhatsApp Audio/
+WhatsApp Images/
+WhatsApp Voice Notes/
+md5sum.txt
