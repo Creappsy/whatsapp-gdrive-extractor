@@ -9,10 +9,17 @@ echo.
 if exist "src-tauri\target\release\app.exe" (
     echo [INFO] Iniciando version de produccion compilada...
     start "" "src-tauri\target\release\app.exe"
-) else (
-    echo [INFO] No se encontro compilacion previa. Iniciando modo desarrollo...
-    npx tauri dev
-)
+    ) else (
+        echo [INFO] No se encontro compilacion previa. Compilando proyecto...
+        npx tauri build
+        if exist "src-tauri\\target\\release\\app.exe" (
+            echo [INFO] Compilación completada. Iniciando versión de producción...
+            start "" "src-tauri\\target\\release\\app.exe"
+        ) else (
+            echo [ERROR] Compilación falló. Iniciando modo desarrollo...
+            npx tauri dev
+        )
+    )
 exit /b
 BAT
 
